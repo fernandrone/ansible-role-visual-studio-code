@@ -82,7 +82,7 @@ Minimal playbook:
 ```yaml
 - hosts: servers
   roles:
-    - role: gantsign.visual-studio-code
+    - role: fernandrone.ansible_role_visual_studio_code
 ```
 
 Playbook with extensions installed that overwrites settings:
@@ -90,7 +90,7 @@ Playbook with extensions installed that overwrites settings:
 ```yaml
 - hosts: servers
   roles:
-    - role: gantsign.visual-studio-code
+    - role: fernandrone.ansible_role_visual_studio_code
       users:
         - username: vagrant
           visual_studio_code_extensions:
