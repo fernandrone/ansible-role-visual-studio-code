@@ -14,5 +14,8 @@ visual_studio_code_download_dir: "{{ x_ansible_download_dir | default(ansible_en
 # with a trailing slash.
 visual_studio_code_mirror: 'https://packages.microsoft.com'
 
+# Overwrite previous installation. This is only verified on macOS, on linux it always attempts to overwrite.
+visual_studio_code_overwrite: false
+
 # Users to install extensions for and/or write settings.json
 users: []

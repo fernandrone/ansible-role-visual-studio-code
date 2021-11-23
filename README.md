@@ -97,6 +97,7 @@ Playbook with extensions installed that overwrites settings:
             - streetsidesoftware.code-spell-checker
             - wholroyd.jinja
             - ms-python.python
+          visual_studio_code_overwrite: yes
           visual_studio_code_settings_overwrite: yes
           visual_studio_code_settings: {
             "editor.rulers": [80, 100, 120],
