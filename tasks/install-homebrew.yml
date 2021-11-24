@@ -1,21 +1,29 @@
 ---
-- name: stat install dir
+- name: Stat install dir
   stat:
-    path: '/Applications/Visual Studio Code.app'
+    path: "/Applications/Visual Studio Code.app"
   register: stat_install_dir
 
 - name: Set should download new versionn
   set_fact:
-    should_download_and_install: '{{ not stat_install_dir.stat.exists or visual_studio_code_overwrite }}'
+    should_download_and_install: "{{ not stat_install_dir.stat.exists or visual_studio_code_overwrite }}"
 
 - name: Remove previous installation
   file:
-    path: '/Applications/Visual Studio Code.app'
+    path: "/Applications/Visual Studio Code.app"
     state: absent
   when: should_download_and_install
 
-- name: install VS Code (brew-cask)
+- name: Install VS Code (brew-cask)
   homebrew_cask:
     name: visual-studio-{{ visual_studio_code_package }}
     state: present
+  when: should_download_and_install
+
+- name: Create 'code' symlink
+  become: true
+  file:
+    src: '/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
+    dest: /usr/local/bin/code
+    state: link
   when: should_download_and_install
