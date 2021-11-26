@@ -26,4 +26,3 @@
     src: '/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code'
     dest: /usr/local/bin/code
     state: link
-  when: should_download_and_install
