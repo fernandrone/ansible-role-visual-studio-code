@@ -102,6 +102,9 @@ def run_module():
 
 
 def main():
+    # update PATH with installation path of vscode
+    os.environ["PATH"] += os.pathsep + '/usr/local/bin'
+
     run_module()
 
 
